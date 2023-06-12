@@ -1,14 +1,19 @@
 package Phase_1;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class Test1 {
 
 		public static void main(String[] args) {
 			// TODO Auto-generated method stub
+//			Map<String, Integer> file= new Map<>();
+			
+			
 			displayWelcomeScreen();
 			showUserInterface();
 			getUserInput();
+			
 
 		}
 		
@@ -20,9 +25,9 @@ public class Test1 {
 		
 		public static void showUserInterface() {
 			System.out.println("----------Choose one of the following----------");
-			System.out.println("Display Files in the Directory");
-			System.out.println("More Opearations");
-			System.out.println("Close the Application");
+			System.out.println("1) Display Files in the Directory");
+			System.out.println("2) More Opearations");
+			System.out.println("3) Close the Application");
 		}
 		
 		public static void getUserInput() {
@@ -55,7 +60,8 @@ public class Test1 {
 					break;
 				case 2:
 					System.out.println("More options are: ");
-					moreOptions();
+					Options obj= new Options();
+					obj.moreOptions();
 					break;
 				
 				case 3:
@@ -66,20 +72,13 @@ public class Test1 {
 			scanner.close();
 		}
 
-		private static void closeApplication() {
-			// TODO Auto-generated method stub
-			
-			
-		}
-
-		private static void moreOptions() {
-			// TODO Auto-generated method stub
-			
-		}
-
 		private static void addFiles() {
 			// TODO Auto-generated method stub
 			
+		}
+
+		private static void closeApplication() {
+			// TODO Auto-generated method stub
 			
 		}
 

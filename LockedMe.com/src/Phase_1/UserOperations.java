@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class UserOperations {
 	 Options obj = new Options();
 	 String path= "C:\\Users\\ayush\\OneDrive\\Desktop\\Phase1Project";
-	 
+	 Scanner scanner = new Scanner (System.in);
 	
 	public void Operations(int choice){
 		
@@ -34,7 +34,7 @@ public class UserOperations {
 	private void searchFile() {
 		// TODO Auto-generated method stub
 		System.out.println("Enter the Filename: ");
-	     Scanner scanner = new Scanner (System.in);
+	     
 	     String str = scanner.nextLine();
 	     if(!Test1.folder.contains(str)) {
 	    	 System.out.println("File Not Found");
@@ -50,7 +50,7 @@ public class UserOperations {
 		 
 	        try {
 	        	System.out.println("Enter the Filename: ");
-	   	     	Scanner scanner = new Scanner (System.in);
+	   	     	
 	   	     	String str = scanner.nextLine();
 	        	File file = new File(path+"\\"+str);
 				if(file.delete()) {
@@ -74,7 +74,7 @@ public class UserOperations {
 		// Elements are added using add() method
         
         System.out.println("Enter the Filename: ");
-        Scanner scanner = new Scanner (System.in);
+        
         String str = scanner.nextLine();
         File file = new File(path+"\\"+str);
         try {

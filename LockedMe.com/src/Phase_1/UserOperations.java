@@ -9,7 +9,7 @@ public class UserOperations {
 	 String path= "C:\\Users\\ayush\\OneDrive\\Desktop\\Phase1Project";
 	 Scanner scanner = new Scanner (System.in);
 	 FileNameValidityCheck fileCheck = new FileNameValidityCheck();
-	 Options option = new Options();
+	
 	public void Operations(int choice){
 		
 		switch(choice) {
@@ -39,14 +39,14 @@ public class UserOperations {
 	     String str = scanner.nextLine();
 	     if(!fileCheck.isValidFileName(str)) {
 	        	System.out.println("Please Enter a Valid File Name");
-	        	option.moreOptions();
 	        }
-	     
-	     if(!Test1.folder.contains(str)) {
-	    	 System.out.println("File Not Found");
-	     }
 	     else {
-	    	 System.out.println("The Folder Contains the file " + str);
+	    	 if(!Test1.folder.contains(str)) {
+		    	 System.out.println("File Not Found");
+		     }
+		     else {
+		    	 System.out.println("The Folder Contains the file " + str);
+		     }
 	     }
 	     obj.moreOptions();
 	}
@@ -60,9 +60,9 @@ public class UserOperations {
 	   	     	String str = scanner.nextLine();
 	   	     if(!fileCheck.isValidFileName(str)) {
 	         	System.out.println("Please Enter a Valid File Name");
-	         	option.moreOptions();
 	         }
-	        	File file = new File(path+"\\"+str);
+	   	     else {
+	   	    	 File file = new File(path+"\\"+str);
 				if(file.delete()) {
 			        System.out.println("File " + str + " Deleted from the directory");
 					Test1.folder.remove(str);
@@ -71,10 +71,13 @@ public class UserOperations {
 				else {
 					System.out.println("File Does not Exists");
 				}
+				}
 			} catch (Exception e) {
+				System.out.println("Hello");
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+	        
 	     obj.moreOptions();
 		
 		
@@ -89,23 +92,24 @@ public class UserOperations {
         
         if(!fileCheck.isValidFileName(str)) {
         	System.out.println("Please Enter a Valid File Name");
-        	option.moreOptions();
-        }
         
-        File file = new File(path+"\\"+str);
-        try {
-			if(file.createNewFile()) {
-		        System.out.println("File " + str + " Saved in the directory");
-				Test1.folder.add(str);
-				Test1.updateTreeSet();
-			}
-			else {
-				System.out.println("File Already Exists");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        }
+        else {
+        	File file = new File(path+"\\"+str);
+            try {
+    			if(file.createNewFile()) {
+    		        System.out.println("File " + str + " Saved in the directory");
+    				Test1.folder.add(str);
+    				Test1.updateTreeSet();
+    			}
+    			else {
+    				System.out.println("File Already Exists");
+    			}
+    		} catch (Exception e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+        }
         obj.moreOptions();
 	}
 

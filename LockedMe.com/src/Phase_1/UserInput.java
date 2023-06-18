@@ -7,7 +7,7 @@ public class UserInput {
 		Scanner scanner = new Scanner (System.in);
 		int choice=0;
 		do {
-			System.out.println("Enter your choise 1-3");
+			System.out.println("Enter your choice 1-3");
 			
 			if(scanner.hasNextInt()) {
 				

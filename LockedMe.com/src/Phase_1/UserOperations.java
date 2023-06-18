@@ -8,7 +8,8 @@ public class UserOperations {
 	 Options obj = new Options();
 	 String path= "C:\\Users\\ayush\\OneDrive\\Desktop\\Phase1Project";
 	 Scanner scanner = new Scanner (System.in);
-	
+	 FileNameValidityCheck fileCheck = new FileNameValidityCheck();
+	 Options option = new Options();
 	public void Operations(int choice){
 		
 		switch(choice) {
@@ -36,6 +37,11 @@ public class UserOperations {
 		System.out.println("Enter the Filename: ");
 	     
 	     String str = scanner.nextLine();
+	     if(!fileCheck.isValidFileName(str)) {
+	        	System.out.println("Please Enter a Valid File Name");
+	        	option.moreOptions();
+	        }
+	     
 	     if(!Test1.folder.contains(str)) {
 	    	 System.out.println("File Not Found");
 	     }
@@ -47,11 +53,15 @@ public class UserOperations {
 
 	private void removeFile() {
 		// TODO Auto-generated method stub
-		 
+		 	
 	        try {
 	        	System.out.println("Enter the Filename: ");
 	   	     	
 	   	     	String str = scanner.nextLine();
+	   	     if(!fileCheck.isValidFileName(str)) {
+	         	System.out.println("Please Enter a Valid File Name");
+	         	option.moreOptions();
+	         }
 	        	File file = new File(path+"\\"+str);
 				if(file.delete()) {
 			        System.out.println("File " + str + " Deleted from the directory");
@@ -76,6 +86,12 @@ public class UserOperations {
         System.out.println("Enter the Filename: ");
         
         String str = scanner.nextLine();
+        
+        if(!fileCheck.isValidFileName(str)) {
+        	System.out.println("Please Enter a Valid File Name");
+        	option.moreOptions();
+        }
+        
         File file = new File(path+"\\"+str);
         try {
 			if(file.createNewFile()) {
